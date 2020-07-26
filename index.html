@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E6%9C%AA%E5%91%BD%E5%90%8D/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/26/#title%20%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E5%92%8C%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +174,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/24/%E6%9C%AA%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2020/07/26/#title%20%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E5%92%8C%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">#title 冒泡排序和快速排序</a>
         </h2>
 
         <div class="post-meta">
@@ -184,7 +184,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-24 20:01:49" itemprop="dateCreated datePublished" datetime="2020-07-24T20:01:49+08:00">2020-07-24</time>
+              <time title="创建时间：2020-07-26 12:39:51" itemprop="dateCreated datePublished" datetime="2020-07-26T12:39:51+08:00">2020-07-26</time>
             </span>
 
           
@@ -198,8 +198,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="F:%5C360MoveData%5CUsers%5Czzx%5CDesktop%5Ceb22bd746b0447c9008b087ab99aeda.jpg" alt=""></p>
+          <p>#title: 冒泡排序和快速排序</p>
+<p>#tags: JAVA</p>
+<p>1、快速排序</p>
+<pre><code>public class Test01 {
+    public static void main(String[] args) {
+        int[] ints = {1, 2, -8, -9, 52, -9, 35};
+        Sort sort = new Sort();
+        sort.quicksort(ints,0,6);
+        System.out.println(Arrays.toString(ints));
 
+    }
+}
+class Sort{
+    public void quicksort(int[] arr,int left,int right){
+        int l = left;
+        int r = right;
+        int mid = arr[(left + right) / 2];
+        while (l &lt; r){
+            while (arr[l] &lt; mid){
+                l++;
+            }
+            while (arr[r] &gt; mid){
+                r--;
+            }
+            if (l &gt;= r){
+                break;
+            }
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            if (arr[l] == mid){
+                r--;
+            }
+            if (arr[r] == mid){
+                l++;
+            }
+        }
+
+        if (l == r){
+            l++;
+            r--;
+        }
+        if (left &lt; r){
+            quicksort(arr,left,r);
+        }
+        if (right &gt; l){
+            quicksort(arr,l,right);
+        }
+
+    }
+}</code></pre>
       
     </div>
 
